@@ -1,0 +1,34 @@
+scrape_configs:
+  - job_name: Confluent Cloud
+    scrape_interval: 1m
+    scrape_timeout: 1m
+    honor_timestamps: true
+    static_configs:
+      - targets:
+        - api.telemetry.confluent.cloud
+    scheme: https
+    basic_auth:
+      username: S5EVU4GA7NFULYQL
+      password: kDaccqwkz8ikzaDqZOV1S9Z8m1vWW0nH8xQyXt21ODgk/sBKQr6EEEejSly2JqsF
+    metrics_path: /v2/metrics/cloud/export
+    params:
+      #kafka cluster id - add multiple if required
+      "resource.kafka.id": 
+        - lkc-7d9gwj  
+      #connector id - add multiple if required
+      "resource.connector.id": 
+        - lcc-xkj3xk
+      #ksql id - add multiple if required
+      "resource.ksql.id": 
+        - lksqlc-vkgvp5
+      #schema registry id - add multiple if required
+      "resource.schema_registry.id": 
+        - lsrc-y3jkoj
+
+  - job_name: Confluent Cost Exporter
+    scrape_interval: 5m
+    scrape_timeout: 30s
+    honor_labels: true
+    metrics_path: /probe
+    static_configs:
+      - targets: ['confluent_cost_exporter:7979']
