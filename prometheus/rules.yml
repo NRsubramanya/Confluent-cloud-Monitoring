@@ -1,0 +1,11 @@
+groups:
+  - name: kafka-alerts
+    rules:
+      - alert: HighKafkaConnectionCount
+        expr: sum(confluent_kafka_server_active_connection_count{kafka_id=~"$cluster"}) > 4
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High number of active Kafka connections"
+          description: "Active Kafka connections are greater than 40 (current value: {{ $value }})"

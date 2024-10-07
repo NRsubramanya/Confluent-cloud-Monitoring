@@ -30,24 +30,27 @@
   "panels": [
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
+        "uid": "PBFA97CFB590B2093",
+        "type": "prometheus"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "value": null,
+                "color": "green"
+              },
+              {
+                "value": 80,
+                "color": "red"
               }
             ]
+          },
+          "color": {
+            "mode": "thresholds"
           },
           "unit": "currencyUSD"
         },
@@ -61,680 +64,19 @@
       },
       "id": 47,
       "options": {
-        "infinitePan": false,
-        "inlineEditing": true,
-        "panZoom": false,
-        "root": {
-          "background": {
-            "color": {
-              "fixed": "transparent"
-            },
-            "image": {
-              "field": "sum(confluent_cloud_cost_amount{id=~\"lksqlc.*\",environment=~\"(env-w5yzdm)\",id=~\"(lksqlc-vkgvp5)\"})",
-              "fixed": "",
-              "mode": "field"
-            }
-          },
-          "border": {
-            "color": {
-              "fixed": "dark-green"
-            }
-          },
-          "constraint": {
-            "horizontal": "left",
-            "vertical": "top"
-          },
-          "elements": [
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "dark-green"
-                }
-              },
-              "config": {
-                "align": "center",
-                "color": {
-                  "fixed": "blue"
-                },
-                "size": 20,
-                "text": {
-                  "field": "sum(confluent_cloud_cost_amount{id=~\"lsrc.*\", environment=~\"(env-w5yzdm)\",id=~\"(lsrc-y3jkoj)\"})",
-                  "fixed": "",
-                  "mode": "field"
-                },
-                "valign": "middle"
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "sr_metric",
-              "placement": {
-                "height": 58,
-                "left": 508,
-                "top": 66,
-                "width": 93
-              },
-              "type": "metric-value"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "dark-green"
-                }
-              },
-              "config": {
-                "align": "center",
-                "color": {
-                  "fixed": "text"
-                },
-                "size": 16,
-                "text": {
-                  "fixed": "Schema Registry"
-                },
-                "valign": "middle"
-              },
-              "connections": [],
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "SchemaReg_Lab",
-              "placement": {
-                "height": 50,
-                "left": 516,
-                "top": 45,
-                "width": 141
-              },
-              "type": "text"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                },
-                "image": {
-                  "fixed": "img/bg/p3.png",
-                  "mode": "field"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "blue"
-                },
-                "width": 0
-              },
-              "config": {
-                "fill": {
-                  "fixed": "#D9D9D9"
-                },
-                "path": {
-                  "fixed": "img/icons/confluent/icon-schema_registry.svg",
-                  "mode": "fixed"
-                }
-              },
-              "connections": [],
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "SchemaRegistry",
-              "placement": {
-                "height": 40,
-                "left": 473,
-                "top": 62,
-                "width": 34
-              },
-              "type": "icon"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "dark-green"
-                }
-              },
-              "config": {
-                "align": "center",
-                "color": {
-                  "fixed": "blue"
-                },
-                "size": 20,
-                "text": {
-                  "field": "sum(confluent_cloud_cost_amount{id=~\"lkc.*\",environment=~\"(env-w5yzdm)\",id=~\"(lkc-7d9gwj)\"})", 
-                  "fixed": "",
-                  "mode": "field"
-                },
-                "valign": "middle"
-              },
-              "connections": [],
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "Flink_metric",
-              "placement": {
-                "height": 58,
-                "left": 221,
-                "top": 66,
-                "width": 93
-              },
-              "type": "metric-value"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "dark-green"
-                }
-              },
-              "config": {
-                "align": "center",
-                "color": {
-                  "fixed": "text"
-                },
-                "size": 16,
-                "text": {
-                  "fixed": "Flink compute pools"
-                },
-                "valign": "middle"
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "Flink_Lab",
-              "placement": {
-                "height": 50,
-                "left": 959,
-                "top": 45,
-                "width": 190
-              },
-              "type": "text"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                },
-                "image": {
-                  "fixed": "img/bg/p3.png",
-                  "mode": "field"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "blue"
-                },
-                "width": 0
-              },
-              "config": {
-                "fill": {
-                  "fixed": "#D9D9D9"
-                },
-                "path": {
-                  "fixed": "img/icons/confluent/icon-flink.svg",
-                  "mode": "fixed"
-                }
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "Flink",
-              "placement": {
-                "height": 46,
-                "left": 921,
-                "top": 56,
-                "width": 38
-              },
-              "type": "icon"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "dark-green"
-                }
-              },
-              "config": {
-                "align": "center",
-                "color": {
-                  "fixed": "blue"
-                },
-                "size": 20,
-                "text": {
-                  "field": "sum(confluent_cloud_cost_amount{id=~\"lksqlc.*\",environment=~\"(env-w5yzdm)\",id=~\"(lksqlc-vkgvp5)\"})",
-                  "fixed": "",
-                  "mode": "field"
-                },
-                "valign": "middle"
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "ksqldb_metric",
-              "placement": {
-                "height": 58,
-                "left": 1202,
-                "top": 67,
-                "width": 93
-              },
-              "type": "metric-value"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "dark-green"
-                }
-              },
-              "config": {
-                "align": "center",
-                "color": {
-                  "fixed": "text"
-                },
-                "size": 16,
-                "text": {
-                  "fixed": "KsqlDB"
-                },
-                "valign": "middle"
-              },
-              "connections": [],
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "Ksql_Lab",
-              "placement": {
-                "height": 50,
-                "left": 1202,
-                "top": 46,
-                "width": 100
-              },
-              "type": "text"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                },
-                "image": {
-                  "fixed": "img/bg/p3.png",
-                  "mode": "field"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "blue"
-                },
-                "width": 0
-              },
-              "config": {
-                "fill": {
-                  "fixed": "#D9D9D9"
-                },
-                "path": {
-                  "fixed": "img/icons/confluent/icon-ksqldb_rocket.svg",
-                  "mode": "fixed"
-                }
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "Ksqldb",
-              "placement": {
-                "height": 58,
-                "left": 1166,
-                "top": 49,
-                "width": 43
-              },
-              "type": "icon"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "dark-green"
-                }
-              },
-              "config": {
-                "align": "center",
-                "color": {
-                  "fixed": "text"
-                },
-                "size": 16,
-                "text": {
-                  "fixed": "Confluent Kafka Clusters"
-                },
-                "valign": "middle"
-              },
-              "connections": [],
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "Kafka_lab",
-              "placement": {
-                "height": 50,
-                "left": 228,
-                "top": 45,
-                "width": 206
-              },
-              "type": "text"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "dark-green"
-                }
-              },
-              "config": {
-                "align": "center",
-                "color": {
-                  "fixed": "blue"
-                },
-                "size": 20,
-                "text": {
-                  "field": "sum(confluent_cloud_cost_amount{id=~\"lfcp.*\",environment=~\"(env-w5yzdm)\",id=~\"(lfcp-671z18)\"})",
-                  "fixed": "",
-                  "mode": "field"
-                },
-                "valign": "middle"
-              },
-              "connections": [],
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "Kafka_metric",
-              "placement": {
-                "height": 58,
-                "left": 951,
-                "top": 66,
-                "width": 93
-              },
-              "type": "metric-value"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                },
-                "image": {
-                  "fixed": "img/bg/p3.png",
-                  "mode": "field"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "blue"
-                },
-                "width": 0
-              },
-              "config": {
-                "fill": {
-                  "fixed": "#D9D9D9"
-                },
-                "path": {
-                  "fixed": "img/icons/confluent/icon-kafka.svg",
-                  "mode": "fixed"
-                }
-              },
-              "connections": [],
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "Kafka",
-              "placement": {
-                "height": 54,
-                "left": 172,
-                "top": 53,
-                "width": 49
-              },
-              "type": "icon"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                },
-                "image": {
-                  "fixed": "img/bg/p3.png",
-                  "mode": "field"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "blue"
-                },
-                "width": 0
-              },
-              "config": {
-                "fill": {
-                  "fixed": "transparent"
-                },
-                "path": {
-                  "fixed": "img/icons/confluent/icon-confluent.svg",
-                  "mode": "fixed"
-                }
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "Cloud",
-              "placement": {
-                "height": 83,
-                "left": 41,
-                "top": 32,
-                "width": 105
-              },
-              "type": "icon"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                },
-                "image": {
-                  "field": "",
-                  "fixed": "",
-                  "mode": "fixed"
-                },
-                "size": "cover"
-              },
-              "border": {
-                "color": {
-                  "fixed": "dark-green"
-                }
-              },
-              "config": {
-                "align": "center",
-                "color": {
-                  "fixed": "light-blue"
-                },
-                "size": 40,
-                "text": {
-                  "field": "sum(confluent_cloud_cost_amount)",
-                  "fixed": "",
-                  "mode": "field"
-                },
-                "valign": "middle"
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "CloudCost",
-              "placement": {
-                "height": 66,
-                "left": -10,
-                "top": 110,
-                "width": 193
-              },
-              "type": "metric-value"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "dark-green"
-                }
-              },
-              "config": {
-                "align": "center",
-                "color": {
-                  "fixed": "text"
-                },
-                "size": 16,
-                "text": {
-                  "fixed": "Connectors"
-                },
-                "valign": "middle"
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "Connect_lab",
-              "placement": {
-                "height": 50,
-                "left": 762,
-                "top": 45,
-                "width": 100
-              },
-              "type": "text"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "dark-green"
-                }
-              },
-              "config": {
-                "align": "center",
-                "color": {
-                  "fixed": "blue"
-                },
-                "size": 20,
-                "text": {
-                  "field": "sum(confluent_cloud_cost_amount{id=~\"lcc.*\",environment=~\"(env-w5yzdm)\"})",
-                  "fixed": "",
-                  "mode": "field"
-                },
-                "valign": "middle"
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "Connect_metric",
-              "placement": {
-                "height": 58,
-                "left": 752,
-                "top": 66,
-                "width": 93
-              },
-              "type": "metric-value"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "transparent"
-                },
-                "image": {
-                  "fixed": "img/bg/p3.png",
-                  "mode": "field"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "blue"
-                },
-                "width": 0
-              },
-              "config": {
-                "fill": {
-                  "fixed": "#D9D9D9"
-                },
-                "path": {
-                  "fixed": "img/icons/confluent/icon-connector.svg",
-                  "mode": "fixed"
-                }
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "connect_icon",
-              "placement": {
-                "height": 44,
-                "left": 701,
-                "top": 58,
-                "width": 61
-              },
-              "type": "icon"
-            }
+        "reduceOptions": {
+          "values": false,
+          "calcs": [
+            "lastNotNull"
           ],
-          "name": "Element 1719653367903",
-          "placement": {
-            "height": 100,
-            "left": 0,
-            "rotation": 0,
-            "top": 0,
-            "width": 100
-          },
-          "type": "frame"
+          "fields": ""
         },
-        "showAdvancedTypes": true
+        "orientation": "auto",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "minVizWidth": 75,
+        "minVizHeight": 75
       },
       "pluginVersion": "11.1.0",
       "targets": [
@@ -744,10 +86,8 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(confluent_cloud_cost_amount)",
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
+          "expr": "sum(confluent_cloud_cost_amount{environment=~\"$Environment\"})",
+          "legendFormat": "Total Cost",
           "refId": "A"
         },
         {
@@ -757,10 +97,7 @@
           },
           "editorMode": "code",
           "expr": "sum(confluent_cloud_cost_amount{id=~\"lkc.*\",environment=~\"$Environment\"})",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
+          "legendFormat": "Kafka Cluster Cost",
           "refId": "B"
         },
         {
@@ -770,10 +107,7 @@
           },
           "editorMode": "code",
           "expr": "sum(confluent_cloud_cost_amount{id=~\"lcc.*\",environment=~\"$Environment\"})",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
+          "legendFormat": "Connector Cost",
           "refId": "C"
         },
         {
@@ -783,10 +117,7 @@
           },
           "editorMode": "code",
           "expr": "sum(confluent_cloud_cost_amount{id=~\"lfcp.*\",environment=~\"$Environment\",id=~\"$Flink\"})",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
+          "legendFormat": "Flink Cost",
           "refId": "D"
         },
         {
@@ -796,10 +127,7 @@
           },
           "editorMode": "code",
           "expr": "sum(confluent_cloud_cost_amount{id=~\"lksqlc.*\",environment=~\"$Environment\",id=~\"$KSQL\"})",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
+          "legendFormat": "KSQL Cost",
           "refId": "E"
         },
         {
@@ -809,15 +137,13 @@
           },
           "editorMode": "code",
           "expr": "sum(confluent_cloud_cost_amount{id=~\"lsrc.*\", environment=~\"$Environment\"})",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
+          "legendFormat": "Schema Registry Cost",
           "refId": "F"
         }
       ],
       "title": "Confluent Cloud Costs",
-      "type": "canvas"
+      "type": "gauge",
+      "description": ""
     },
     {
       "collapsed": false,
