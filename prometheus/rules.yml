@@ -2,7 +2,7 @@ groups:
   - name: kafka-alerts
     rules:
       - alert: HighKafkaConnectionCount
-        expr: sum(confluent_kafka_server_active_connection_count{kafka_id=~"$cluster"}) > 4
+        expr: sum(confluent_kafka_server_active_connection_count{kafka_id="lkc-7d9gwj",}) > 40
         for: 1m
         labels:
           severity: warning
