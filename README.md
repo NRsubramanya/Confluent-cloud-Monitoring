@@ -172,7 +172,7 @@ Link this in prometheus.yml and restart Prometheus and verify if the alerts are 
 3. Browse and select the pre-configured dashboards.
    **Confluent Cloud Dashboard**
 
-![alt_text](img/grafana1.png "image_tooltip")
+![alt_text](img/grafana1.jpeg "image_tooltip")
 
 
 This guide outlines how to monitor Confluent Cloud metrics using Prometheus, visualize them in Grafana, and configure Alertmanager for email alerts based on critical thresholds.
