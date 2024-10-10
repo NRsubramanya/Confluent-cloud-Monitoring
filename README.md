@@ -66,8 +66,29 @@ Test the setup by visiting http://your-vm-ip:9090/targets or using a curl comman
 
 ### Step 3: Set Up Grafana Dashboards
 
-1. Copy the provisioning folder to Grafana.
+1. Copy the provisioning folder to Grafana:
 
+   In your repository, locate the provisioning folder, which contains both the dashboards and datasource folders.
+
+   Copy the provisioning folder into your Grafana instance's configuration directory.
+
+   Configure Grafana to load the dashboards:
+
+   In the provisioning/dashboards folder, open the dashboard.yml file.
+
+   Add or update the path field to point to the folder where your dashboard JSON files are located:
+
+   **Alternative** - Add Dashboards via Grafana UI: If you prefer adding dashboards manually through the Grafana web interface, you can follow these steps:
+
+   Log into Grafana and go to the Dashboards tab.
+   
+   Click Import in the dashboard panel.
+   
+   Upload your dashboard configuration JSON file or paste the JSON content directly into the provided area.
+   
+   Set the data source (Prometheus) as the default for the dashboard.
+
+   Check out this [doc](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/import-dashboards/) for more information.
 
 2. Update datasource.yml to point to Prometheus (http://your-vm-ip:9090).
 
