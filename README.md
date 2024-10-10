@@ -90,7 +90,7 @@ Test the setup by visiting http://your-vm-ip:9090/targets or using a curl comman
    
    Set the data source (Prometheus) as the default for the dashboard.
 
-   Check out this [doc](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/import-dashboards/) for more information.
+   Check out this [doc](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/import-dashboards/) for more information on importing dashboards directly from the Grafana Web UI.
 
 **2. Update datasource.yml to point to Prometheus (http://your-vm-ip:9090).**
 
