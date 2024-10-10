@@ -21,22 +21,22 @@ scrape_configs:
         - api.telemetry.confluent.cloud
     scheme: https
     basic_auth:
-      username: S5EVU4GA7NFULYQL
-      password: kDaccqwkz8ikzaDqZOV1S9Z8m1vWW0nH8xQyXt21ODgk/sBKQr6EEEejSly2JqsF
+      username: <<ccloud_api_key>>
+      password: <<cloud_api_secret>>
     metrics_path: /v2/metrics/cloud/export
     params:
       #kafka cluster id - add multiple if required
       "resource.kafka.id": 
-        - lkc-7d9gwj  
+        - lkc-xxxxxx
       #connector id - add multiple if required
       "resource.connector.id": 
-        - lcc-xkj3xk
+        - lcc-xxxxxx
       #ksql id - add multiple if required
       "resource.ksql.id": 
-        - lksqlc-kon602
+        - lksqlc-xxxxxx
       #schema registry id - add multiple if required
       "resource.schema_registry.id": 
-        - lsrc-y3jkoj
+        - lsrc-xxxxxx
 
   - job_name: Confluent Cost Exporter
     scrape_interval: 5m

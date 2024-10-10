@@ -74,8 +74,8 @@ services:
     platform: linux/amd64
     container_name: confluent_cost_exporter
     environment:
-    - CONFLUENT_CLOUD_API_KEY=S5EVU4GA7NFULYQL
-    - CONFLUENT_CLOUD_API_SECRET=kDaccqwkz8ikzaDqZOV1S9Z8m1vWW0nH8xQyXt21ODgk/sBKQr6EEEejSly2JqsF
+    - CONFLUENT_CLOUD_API_KEY=<<cloud_api_key>>
+    - CONFLUENT_CLOUD_API_SECRET=<<cloud_api_secret>>
     - CACHE_EXPIRATION=240m
     - PORT=7979
     ports:
