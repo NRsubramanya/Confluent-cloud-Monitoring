@@ -78,7 +78,7 @@ Test the setup by visiting http://your-vm-ip:9090/targets or using a curl comman
 
    Add or update the path field to point to the folder where your dashboard JSON files are located:
 
-**Alternative** - Add Dashboards via Grafana UI: If you prefer adding dashboards manually through the Grafana web interface, you can follow these steps:
+   **Alternative** - Add Dashboards via Grafana UI: If you prefer adding dashboards manually through the Grafana web interface, you can follow these steps:
 
    Log into Grafana and go to the Dashboards tab.
    
