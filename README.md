@@ -12,23 +12,18 @@ Configure the  docker-compose.yml file for Prometheus and Alertmanager with the 
 
 Key Components:
 
-
-
-* 
+ 
 **Prometheus Volumes**: Mounts ./prometheus and prometheus_data.
-
-
-* 
+ 
 **Alertmanager Volumes**: Mounts ./alertmanager/.
 
-
-* 
 **Ports**: Prometheus on 9090, Alertmanager on 9093
 
 ### Step 2: Configure Prometheus to Scrape Confluent Cloud
 
 Update prometheus.yml to scrape metrics from the Confluent Cloud API.
 
+```yaml
 scrape_configs:
 
   - job_name: Confluent Cloud
@@ -62,6 +57,7 @@ scrape_configs:
       "resource.kafka.id":
 
         - lkc-xxxxxx
+```
 
 Similarly add ID’s of other required resources
 
@@ -70,23 +66,19 @@ Test the setup by visiting http://your-vm-ip:9090/targets or using a curl comman
 
 ### Step 3: Set Up Grafana Dashboards
 
+1. Copy the provisioning folder to Grafana.
 
 
-1. 
-Copy the provisioning folder to Grafana.
+2. Update datasource.yml to point to Prometheus (http://your-vm-ip:9090).
 
 
-2. 
-Update datasource.yml to point to Prometheus (http://your-vm-ip:9090).
-
-
-3. 
-Dashboards: Confluent Metrics, Billing, ksqlDB.
+3. Dashboards: Confluent Metrics, Billing, ksqlDB.
 
 ### Step 4: Configure Alertmanager
 
 Configure alertmanager.yml to send email alerts:
 
+```yaml
 route:
 
     receiver: smtp
@@ -112,6 +104,7 @@ receivers:
             send_resolved: true
 
             require_tls: false
+```
 
 Test Alertmanager at http://your-vm-ip:9093 
 
@@ -120,6 +113,7 @@ Test Alertmanager at http://your-vm-ip:9093
 
 Add the Alertmanager endpoint in prometheus.yml:
 
+```yaml
 alerting:
 
   alertmanagers:
@@ -127,12 +121,13 @@ alerting:
     - static_configs:
 
         - targets: ['your-vm-ip:9093']   # Replace with your Alertmanager IP and port
-
+```
 
 ### Step 6: Set Up Alerting Rules
 
 Create alert_rules.yml for Prometheus to trigger alerts:
 
+```yaml
 groups:
 
   - name: kafka_alerts
@@ -155,6 +150,8 @@ groups:
 
           description: "Kafka server active connection count is greater than 50 for more than 5 minutes."
 
+```
+
 This is just an example expression, the expression for the alerting rule should be configured based on the Cluster Usage and maximum tolerable usage.
 
 Link this in prometheus.yml and restart Prometheus and verify if the alerts are seen in the alertmanager UI.
@@ -164,21 +161,16 @@ Link this in prometheus.yml and restart Prometheus and verify if the alerts are 
 ### Step 7: Access Grafana Dashboards
 
 
-
-1. 
-Open Grafana at http://your-vm-ip:3000.
+1. Open Grafana at http://your-vm-ip:3000.
 
 
-2. 
-Log in with 
-username: admin
-Password: admin.
+2. Log in with 
+   username: admin
+   password: admin.
 
 
-3. 
-Browse and select the pre-configured dashboards.
-**Confluent Cloud Dashboard**
-
+3. Browse and select the pre-configured dashboards.
+   **Confluent Cloud Dashboard**
 
 ![alt_text](images/image2.png "image_tooltip")
 
