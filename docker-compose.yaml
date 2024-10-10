@@ -26,28 +26,28 @@ services:
           cpus: "0.2"
           memory: 256M
 
-  grafana:
-    image: grafana/grafana:11.1.0
-    container_name: grafana
-    volumes:
-      - grafana_data:/var/lib/grafana
-      - ./grafana/provisioning:/etc/grafana/provisioning
-      - ./grafana/public/img/icons/confluent:/usr/share/grafana/public/img/icons/confluent
-    environment:
-      - GF_SECURITY_ADMIN_USER=admin
-      - GF_SECURITY_ADMIN_PASSWORD=admin
-      - GF_USERS_ALLOW_SIGN_UP=false
-      - GF_INSTALL_PLUGINS=grafana-piechart-panel
-    restart: unless-stopped
-    ports:
-    - 3000:3000
-    expose:
-      - 3000
-    deploy:
-      resources:
-        limits:
-          cpus: "0.2"
-          memory: 256M
+#  grafana:
+#    image: grafana/grafana:11.1.0
+#    container_name: grafana
+#    volumes:
+#      - grafana_data:/var/lib/grafana
+#      - ./grafana/provisioning:/etc/grafana/provisioning
+#      - ./grafana/public/img/icons/confluent:/usr/share/grafana/public/img/icons/confluent
+#    environment:
+#      - GF_SECURITY_ADMIN_USER=admin
+#      - GF_SECURITY_ADMIN_PASSWORD=admin
+#      - GF_USERS_ALLOW_SIGN_UP=false
+#      - GF_INSTALL_PLUGINS=grafana-piechart-panel
+#    restart: unless-stopped
+#    ports:
+#    - 3000:3000
+#    expose:
+#      - 3000
+#    deploy:
+#      resources:
+#        limits:
+#          cpus: "0.2"
+#          memory: 256M
 
   alertmanager:
     image: prom/alertmanager:latest
@@ -73,8 +73,6 @@ services:
     image: docker.io/mcolomerc/confluent-costs-exporter:latest
     platform: linux/amd64
     container_name: confluent_cost_exporter
-   # command:
-    #  - '--storage.tsdb.retention.time=100d'
     environment:
     - CONFLUENT_CLOUD_API_KEY=S5EVU4GA7NFULYQL
     - CONFLUENT_CLOUD_API_SECRET=kDaccqwkz8ikzaDqZOV1S9Z8m1vWW0nH8xQyXt21ODgk/sBKQr6EEEejSly2JqsF

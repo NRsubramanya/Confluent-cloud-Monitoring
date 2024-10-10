@@ -9,6 +9,7 @@ providers:
       allowUiUpdates: true
       editable: true
       options:
+          #path to grafana dashboards folder
           path: /etc/grafana/provisioning/dashboards
 
 

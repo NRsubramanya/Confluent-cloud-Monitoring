@@ -3,13 +3,11 @@ route:
 receivers:
     - name: smtp
       email_configs:
-          - smarthost: smtp.gmail.com:587
-            hello: gmail.com
-            to: 'nrsubramanya77@gmail.com'
-            from: 'subramanya@platformatory.com'
-            auth_username: 'subramanya@platformatory.com'
-            auth_password: 'hfjwqgrgfexvzrmf'
+          - smarthost: mail.your-email-service-domain:port
+            hello: your-email-service-domain
+            to: 'to@example.com'
+            from: 'from@example.com'
+            auth_username: 'from@example.com'
+            auth_password: 'your-password'
             send_resolved: true
-            require_tls: true
-
-
+            require_tls: false
