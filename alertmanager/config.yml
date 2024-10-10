@@ -1,0 +1,15 @@
+route:
+    receiver: smtp
+receivers:
+    - name: smtp
+      email_configs:
+          - smarthost: smtp.gmail.com:587
+            hello: gmail.com
+            to: 'nrsubramanya77@gmail.com'
+            from: 'subramanya@platformatory.com'
+            auth_username: 'subramanya@platformatory.com'
+            auth_password: 'hfjwqgrgfexvzrmf'
+            send_resolved: true
+            require_tls: true
+
+

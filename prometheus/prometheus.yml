@@ -1,13 +1,15 @@
-alerting:
-  alertmanagers:
-  - scheme: http
-    static_configs:
-    - targets:
-      - "alertmanager:9093"
+global:
+ scrape_interval: 10s
+ evaluation_interval: 10s
 
-# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
-    - /etc/prometheus/rules.yml
+ - /etc/prometheus/rules.yml
+
+alerting:
+ alertmanagers:
+   - static_configs:
+       - targets:
+           - alertmanager:9093
 
 scrape_configs:
   - job_name: Confluent Cloud
@@ -31,7 +33,7 @@ scrape_configs:
         - lcc-xkj3xk
       #ksql id - add multiple if required
       "resource.ksql.id": 
-        - lksqlc-vkgvp5
+        - lksqlc-kon602
       #schema registry id - add multiple if required
       "resource.schema_registry.id": 
         - lsrc-y3jkoj

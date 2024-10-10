@@ -1,11 +1,11 @@
 groups:
   - name: kafka-alerts
     rules:
-      - alert: HighKafkaConnectionCount
-        expr: sum(confluent_kafka_server_active_connection_count{kafka_id="lkc-7d9gwj",}) > 40
-        for: 1m
+      - alert: KafkaHighConnectionCount
+        expr: max(avg_over_time(confluent_kafka_server_active_connection_count[10m])) > 50
+        for: 5m
         labels:
           severity: warning
         annotations:
-          summary: "High number of active Kafka connections"
-          description: "Active Kafka connections are greater than 40 (current value: {{ $value }})"
+          summary: "High Kafka Connection Count"
+          description: "Total active connections across Kafka servers have exceeded 50. Current total: {{ $value }}."
