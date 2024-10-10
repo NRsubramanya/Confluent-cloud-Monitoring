@@ -66,7 +66,7 @@ Test the setup by visiting http://your-vm-ip:9090/targets or using a curl comman
 
 ### Step 3: Set Up Grafana Dashboards
 
-1. Copy the provisioning folder to Grafana:
+**1. Copy the provisioning folder to Grafana:**
 
    In your repository, locate the provisioning folder, which contains both the dashboards and datasource folders.
 
@@ -92,10 +92,10 @@ Test the setup by visiting http://your-vm-ip:9090/targets or using a curl comman
 
    Check out this [doc](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/import-dashboards/) for more information.
 
-2. Update datasource.yml to point to Prometheus (http://your-vm-ip:9090).
+**2. Update datasource.yml to point to Prometheus (http://your-vm-ip:9090).**
 
 
-3. Dashboards: Confluent Metrics, Billing, ksqlDB.
+**3. Dashboards: Confluent Metrics, Billing, ksqlDB.**
 
 ### Step 4: Configure Alertmanager
 
